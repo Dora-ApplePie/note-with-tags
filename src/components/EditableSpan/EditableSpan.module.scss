@@ -1,0 +1,30 @@
+.edit {
+  display: flex;
+  overflow: hidden;
+
+  &__textarea {
+    height: 200px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    line-height: 1;
+    font-size: 1rem;
+  }
+
+  &__div {
+    background-color: transparent;
+    flex: 1;
+    outline: none;
+  }
+
+  &__pen {
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+

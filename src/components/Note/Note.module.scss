@@ -1,0 +1,38 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  height: 250px;
+  width: 270px;
+  border-radius: 30px;
+  margin: 5px 0 0 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+  &__div {
+    background-color: transparent;
+    flex: 1;
+    outline: none;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+  }
+
+  &__data {
+    margin: 0;
+    margin-top: 20px;
+    opacity: 0.7;
+  }
+
+  .trash {
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
