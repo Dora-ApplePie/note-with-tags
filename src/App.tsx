@@ -25,7 +25,6 @@ const App = React.memo(() => {
 
     const notes = useSelector<AppRootStateType, NotesStateType[]>(state => state.notes);
     const tags = useSelector<AppRootStateType, TagsStateType>(state => state.tags);
-
     const dispatch = useDispatch();
 
     const addNote = useCallback((note: string, color: string) => {
