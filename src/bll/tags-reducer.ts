@@ -24,7 +24,7 @@ export const tagsReducer = (state: TagsStateType = initialTagsState, action: Act
         }
         case 'ADD-TAG': {
             let copyState = [...state];
-            action.payload.textNote.split(" ").forEach((word: string) => word[0] === "#" && !state?.includes(word.split(/[;.,:'%$!?()]/g)[0]) ? copyState.push(word.split(/[.,;%$:'!?()]/g)[0]) : copyState);
+            action.payload.textNote.split(" ").forEach((word: string) => word[0] === "#"  && !state?.includes(word.split(/[;.,:'%$!?()]/g)[0]) ? copyState.push(word.split(/[.,;%$:'!?()]/g)[0]) : copyState);
             return copyState
         }
         default:
