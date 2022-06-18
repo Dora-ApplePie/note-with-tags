@@ -22,14 +22,9 @@ export const tagsReducer = (state: TagsStateType = initialTagsState, action: Act
         case 'REMOVE-TAG': {
             return state.filter(tag => tag !== action.payload.tagName)
         }
-
         case 'ADD-TAG': {
-            const copyState = [...state];
-            action.payload.textNote.split(" ").forEach((word: string) => {
-                if (word[0] === "#" && !state?.includes(word)) {
-                    copyState.push(word);
-                }
-            });
+            let copyState = [...state];
+            action.payload.textNote.split(" ").forEach((word: string) => word[0] === "#" && !state?.includes(word.split(/[.,:'!?()]/g)[0]) ? copyState = [...state, word.split(/[.,:'!?()]/g)[0]] : copyState);
             return copyState
         }
         default:
