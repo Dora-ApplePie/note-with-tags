@@ -28,6 +28,8 @@ export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType
         setTitle(e.currentTarget.value)
     }
 
+    // {title.split(" ").forEach((word: string) => word[0] === "#" ? <span className={s.color}>{word}</span> : <span>{word}</span>)}
+
     return editMode
         ? <div className={s.edit}><textarea placeholder={"Enter your note"}
                                             className={s.edit__textarea + " custom-scroll"}
