@@ -4,8 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../bll/store";
-import {changeNoteTextAC, NotesStateType, removeNoteAC} from "../../bll/notes-reducer";
-import {addTagAC} from "../../bll/tags-reducer";
+import {changeNoteTextAC, NotesStateType, removeNoteAC} from "../../bll/notesReducer";
+import {addTagAC} from "../../bll/tagsReducer";
 import s from "./Note.module.scss";
 
 type NotePropsType = {
@@ -26,7 +26,7 @@ export const Note = React.memo(({id, noteText, noteDate, color}: NotePropsType) 
 
     const onNoteChangeHandler = useCallback((newValue: string) => {
         dispatch(changeNoteTextAC(id, newValue));
-        dispatch(addTagAC(newValue));
+        dispatch(addTagAC(newValue.trim()));
     }, [id, dispatch]);
 
     return (

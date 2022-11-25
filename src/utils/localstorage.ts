@@ -16,8 +16,8 @@ export const saveState = (state: AppRootStateType) => {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem('notes', serializedState);
-    } catch {
-        // ignore write errors
+    } catch (err){
+       console.log("some error with saving to the localstorage")
     }
 };
 

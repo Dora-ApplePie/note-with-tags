@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {Sidebar} from "./components/Sidebar/Sidebar";
 import {NoteContainer} from "./components/NoteContainer/NoteContainer";
 import Tags from "./components/Tags/Tags";
-import {addTagAC, RemoveTagAC, TagsStateType} from "./bll/tags-reducer";
-import {addNoteAC, NotesStateType} from "./bll/notes-reducer";
+import {RemoveTagAC, TagsStateType} from "./bll/tagsReducer";
+import {addNoteAC, NotesStateType} from "./bll/notesReducer";
 import {AppRootStateType} from "./bll/store";
 import './App.scss';
 
@@ -29,7 +29,6 @@ const App = React.memo(() => {
 
     const addNote = useCallback((note: string, color: string) => {
         dispatch(addNoteAC(note, color))
-        dispatch(addTagAC(note))
     }, [dispatch])
 
     const deleteTag = useCallback((tagName: string) => {

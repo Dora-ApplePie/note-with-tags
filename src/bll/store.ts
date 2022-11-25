@@ -1,7 +1,7 @@
 import {combineReducers, createStore} from "redux";
-import {notesReducer} from "./notes-reducer";
+import {notesReducer} from "./notesReducer";
 import {loadState, saveState} from "../utils/localstorage";
-import {tagsReducer} from "./tags-reducer";
+import {tagsReducer} from "./tagsReducer";
 
 const rootReducer = combineReducers({
     notes: notesReducer,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {NotesStateType} from "../../bll/notes-reducer";
+import {NotesStateType} from "../../bll/notesReducer";
 import {Note} from "../Note/Note";
 import s from './NoteContainer.module.scss'
 

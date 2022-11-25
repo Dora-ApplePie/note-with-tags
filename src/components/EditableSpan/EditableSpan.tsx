@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPen, faCheck} from "@fortawesome/free-solid-svg-icons";
 import s from './EditableSpan.module.scss'
@@ -11,7 +11,6 @@ type EditableSpanPropsType = {
 
 
 export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType) => {
-
 
     let [editMode, setEditMode] = useState(false);
     let [title, setTitle] = useState(value);
@@ -28,20 +27,23 @@ export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType
         setTitle(e.currentTarget.value)
     }
 
-    // {title.split(" ").forEach((word: string) => word[0] === "#" ? <span className={s.color}>{word}</span> : <span>{word}</span>)}
+    // useEffect(() => {
+    //     dispatch(addTagAC(title));
+    // }, [title]);
 
     return editMode
-        ? <div className={s.edit}><textarea placeholder={"Enter your note"}
-                                            className={s.edit__textarea + " custom-scroll"}
-                                            value={title}
-                                            onChange={changeTitle}
-                                            autoFocus
-                                            onBlur={activateViewMode}/>
+        ? <div className={s.edit}>
+            <textarea placeholder={"Enter your note"}
+                      className={s.edit__textarea + " custom-scroll"}
+                      value={title}
+                      onChange={changeTitle}
+                      autoFocus
+                      onBlur={activateViewMode}/>
             <FontAwesomeIcon
                 onClick={activateViewMode}
                 size="1x"
                 icon={faCheck}
-                className={s.pen}
+                className={s.edit__pen}
             /></div>
         : <div className={s.edit}><span className={s.edit__div} onDoubleClick={activateEditMode}>{value}</span>
             <FontAwesomeIcon

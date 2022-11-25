@@ -52,7 +52,6 @@ export const notesReducer = (state: NotesStateType[] = initialState, action: Act
         case 'CHANGE-NOTE': {
             const note = state.find(n => n.id === action.payload.noteId);
             if (note) {
-                // если нашёлся - изменим ему текст
                 note.note = action.payload.text;
             }
             return [...state]
