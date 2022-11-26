@@ -9,7 +9,6 @@ type EditableSpanPropsType = {
     onChange: (newValue: string) => void
 }
 
-
 export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType) => {
 
     let [editMode, setEditMode] = useState(false);
@@ -26,7 +25,6 @@ export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType
     const changeTitle = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setTitle(e.currentTarget.value)
     }
-
 
     return editMode
         ? <div className={s.edit}>

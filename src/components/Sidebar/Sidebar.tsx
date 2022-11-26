@@ -14,7 +14,6 @@ export const Sidebar = React.memo(({addItem}: SidebarPropsType) => {
     let [title, setTitle] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const colors = ["#e4ee91", "#b693fd", "#00d4fe", "#fec971", "#fe9b72"];
-    // let [error, setError] = useState<string | null>(null)
 
     const classes = s.sidebar__list + `${isOpen ? " " + s.sidebar__list__active : ""}`;
 
@@ -43,6 +42,5 @@ export const Sidebar = React.memo(({addItem}: SidebarPropsType) => {
                 />
             ))}
         </ul>
-        {/*{error}*/}
     </div>
 });

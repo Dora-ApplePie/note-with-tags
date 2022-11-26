@@ -1,43 +1,5 @@
 import {v1} from "uuid";
 
-export type RemoveNoteActionType = {
-    type: 'REMOVE-NOTE'
-    payload: {
-        noteId: string
-    },
-}
-
-export type AddNoteActionType = {
-    type: 'ADD-NOTE'
-    payload: {
-        text: string
-        color: string
-    },
-}
-
-export type ChangeNoteTextActionType = {
-    type: 'CHANGE-NOTE'
-    payload: {
-        noteId: string
-        text: string
-    },
-}
-
-
-type ActionsType =
-    RemoveNoteActionType
-    | AddNoteActionType
-    | ChangeNoteTextActionType
-
-
-export type NotesStateType = {
-    id: string,
-    note: string,
-    date: string
-    color: string
-}
-
-
 
 export const initialState: NotesStateType[] = []
 
@@ -86,4 +48,41 @@ export const changeNoteTextAC = (noteId: string, text: string): ChangeNoteTextAc
             noteId, text
         }
     }
+}
+
+export type RemoveNoteActionType = {
+    type: 'REMOVE-NOTE'
+    payload: {
+        noteId: string
+    },
+}
+
+export type AddNoteActionType = {
+    type: 'ADD-NOTE'
+    payload: {
+        text: string
+        color: string
+    },
+}
+
+export type ChangeNoteTextActionType = {
+    type: 'CHANGE-NOTE'
+    payload: {
+        noteId: string
+        text: string
+    },
+}
+
+
+type ActionsType =
+    RemoveNoteActionType
+    | AddNoteActionType
+    | ChangeNoteTextActionType
+
+
+export type NotesStateType = {
+    id: string,
+    note: string,
+    date: string
+    color: string
 }

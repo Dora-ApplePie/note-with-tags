@@ -1,20 +1,3 @@
-export type RemoveTagActionType = {
-    type: 'REMOVE-TAG'
-    payload: {
-        tagName: string
-    },
-}
-export type AddTagActionType = {
-    type: 'ADD-TAG'
-    payload: {
-        tags: Array<string>
-    },
-}
-
-type ActionsType = RemoveTagActionType | AddTagActionType
-
-export type TagsStateType = string[]
-
 const initialTagsState: TagsStateType = []
 
 export const tagsReducer = (state: TagsStateType = initialTagsState, action: ActionsType): TagsStateType => {
@@ -52,6 +35,23 @@ export const addTagAC = (tags: Array<string>): AddTagActionType => {
         }
     }
 }
+
+export type RemoveTagActionType = {
+    type: 'REMOVE-TAG'
+    payload: {
+        tagName: string
+    },
+}
+export type AddTagActionType = {
+    type: 'ADD-TAG'
+    payload: {
+        tags: Array<string>
+    },
+}
+
+type ActionsType = RemoveTagActionType | AddTagActionType
+
+export type TagsStateType = string[]
 
 
 
