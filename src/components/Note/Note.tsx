@@ -7,6 +7,7 @@ import {AppRootStateType} from "../../bll/store";
 import {changeNoteTextAC, NotesStateType, removeNoteAC} from "../../bll/notesReducer";
 import {addTagAC} from "../../bll/tagsReducer";
 import s from "./Note.module.scss";
+import {noteTagsCutting} from "../../utils/noteTagsCutting";
 
 type NotePropsType = {
     id: string
@@ -26,7 +27,7 @@ export const Note = React.memo(({id, noteText, noteDate, color}: NotePropsType) 
 
     const onNoteChangeHandler = useCallback((newValue: string) => {
         dispatch(changeNoteTextAC(id, newValue));
-        dispatch(addTagAC(newValue.trim()));
+        dispatch(addTagAC(noteTagsCutting(newValue.trim())));
     }, [id, dispatch]);
 
     return (

@@ -27,9 +27,6 @@ export const EditableSpan = React.memo(({value, onChange}: EditableSpanPropsType
         setTitle(e.currentTarget.value)
     }
 
-    // useEffect(() => {
-    //     dispatch(addTagAC(title));
-    // }, [title]);
 
     return editMode
         ? <div className={s.edit}>

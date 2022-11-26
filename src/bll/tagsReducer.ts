@@ -7,7 +7,7 @@ export type RemoveTagActionType = {
 export type AddTagActionType = {
     type: 'ADD-TAG'
     payload: {
-        textNote: string
+        tags: Array<string>
     },
 }
 
@@ -24,9 +24,11 @@ export const tagsReducer = (state: TagsStateType = initialTagsState, action: Act
         }
         case 'ADD-TAG': {
             let copyState = [...state];
-            action.payload.textNote.split(" ").forEach((word: string) => word[0] === "#"  && !state?.includes(word.split(/[;.,:'%$!?()]/g)[0])
-                ? copyState.push(word.split(/[.,;%$:'!?()]/g)[0])
-                : copyState);
+            action.payload.tags.forEach((tag) => {
+                if (!copyState.includes(tag)) {
+                    copyState.push(tag);
+                }
+            });
             return copyState
         }
         default:
@@ -42,11 +44,11 @@ export const RemoveTagAC = (tagName: string): RemoveTagActionType => {
         }
     }
 }
-export const addTagAC = (textNote: string): AddTagActionType => {
+export const addTagAC = (tags: Array<string>): AddTagActionType => {
     return {
         type: 'ADD-TAG',
         payload: {
-            textNote
+            tags
         }
     }
 }
